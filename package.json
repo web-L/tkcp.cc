@@ -1,0 +1,39 @@
+{
+  "name": "tuziliang-gulp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-asset-rev": "0.0.15",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "*",
+    "gulp-file-include": "^1.1.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "latest",
+    "gulp-if": "*",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-jshint": "*",
+    "gulp-less": "*",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-minify-css": "^*",
+    "gulp-minify-html": "*",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "*",
+    "gulp-rev-collector": "*",
+    "gulp-sass": "*",
+    "gulp-size": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-useref": "*",
+    "imagemin-pngquant": "^5.0.1",
+    "run-sequence": "*"
+  }
+}
