@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>图库</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+
+    <style>
+        @charset "utf-8";
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei";
+            font-family: "微软雅黑";
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0px;
+            clear: both;
+            /*清除浮动*/
+        }
+        ul,
+        li {
+            list-style: none;
+            font-family: "Microsoft YaHei";
+        }
+        img {
+            vertical-align: top;
+            border: none;
+        }
+        body{
+            min-width: 1000px;
+        }
+        .center{
+            width: 1000px;
+            margin:0 auto; 
+        }
+        .header{
+            height: 84px;
+        }
+        .nav{
+            float: left;
+        }
+        .nav ul li{
+            float: left;
+            height: 84px;
+            line-height: 84px;
+            padding: 0 36px;
+        }
+        .nav ul li a{
+            font-size: 24px;
+        }
+        .nav ul li.active{
+            background: url(images/bg2.png) no-repeat 16px 18px;
+        }
+        .logo{
+            float: left;
+            margin-top: 16px;
+            margin-right: 34px;
+        }
+        .main{
+            width: 100%;
+            background: #000 url(images/gallery/bg1.png) no-repeat -7px 52px;
+        }
+
+        .flooter{
+            text-align: center;
+            color: #fff;
+            padding-bottom: 46px;
+            margin-top: 94px;
+        }
+        .flooter p{
+            font-size: 24px;
+            line-height: 36px;
+        }
+        .flooter .row a{
+            background: #ffed00;
+            font-size: 24px;
+            color: #ff0000;
+            line-height: 34px;
+        }
+        .flooter .row{
+            color: #ff0000;
+            text-align: center;
+        }
+
+        .main>.row{
+            position: relative;
+            text-align: center;
+            background: #ffab01;
+        }
+        .main>.row .title{
+            width: 100%;    
+            height: 52px;
+            line-height: 52px;
+            text-align: center;
+            background: #ffab01;
+            font-size: 20px;
+            color: #2200bb;
+            animation: flashText .3s infinite cubic-bezier(0.4, 0, 1, 1);
+        }
+        .main>.row .title span{
+            font-size: 24px;
+            color: #ff0000;
+        }
+
+        .floor-one{
+            height: 278px;
+            background: #fff;
+            border-radius: 4px;
+            margin-top: 6px;
+        }
+        .floor-one li{
+            float: left;
+            text-align: center;
+            margin-top: 24px;
+            margin: 24px 28px 0;
+            position: relative; 
+        }
+        .floor-one li.active::after{
+            content: '';
+            position: absolute;
+            top: -23px;
+            left: -30px;
+            width: 112px;
+            height: 116px;
+            background: url(images/gallery/tuijian.png) no-repeat center;
+        }
+        .floor-one li p{
+            color: #151927;
+            font-size: 18px;
+            line-height: 46px;
+        }
+
+        .floor-two .floor-top{ 
+            text-align: center;
+        }
+        .floor-two .floor-top h2{ 
+            text-align: center;
+            color: #e30011;
+            font-size: 24px;
+            line-height: 48px;
+        }
+        .floor-two .content li{
+            float: left;
+            margin: 0 22px 18px;
+        }
+        .floor-two  .content li a{
+            font-size: 24px;
+            color: #f6e72a;
+            font-weight: 900;
+        }
+        .floor-two  .content li a:hover{
+            color: #e30011;     
+        }
+
+        .floor-three{
+            height: 970px;
+            background: url(images/gallery/ditu.jpg) no-repeat center;
+        }
+        .floor-three .content{
+            padding: 0 16px;
+        }
+        .floor-three .content .item{
+            float: left;
+            width: 292px;
+            height: 284px;
+            padding-top: 88px;
+            margin-top: 20px;
+            margin: 20px 15px 0; 
+            background: url(images/gallery/yangpijun.png) no-repeat center;
+        }
+        .floor-three .content .item .title{
+            text-align: center;
+            font-size: 24px;
+            color: #e30011;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .floor-three .content .item li{
+            padding-left: 48px;
+            line-height: 30px;
+        }
+        .floor-three .content .item li a{
+            font-size: 18px;
+            color: #0f1e7d;
+        }
+        .floor-three .content .item li a:hover{
+            color: #e30011;     
+        }
+        .floor-three .content .more{
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #e30011;
+            margin-top: 40px;
+        }
+        .floor-three .floor-flooter{
+            text-align: center;
+        }
+        .floor-three .floor-flooter h2{
+            font-size: 24px;
+            color: #e30011;
+            margin-top: 16px;
+            animation: flashText .3s infinite cubic-bezier(0.4, 0, 1, 1);
+        }
+        .floor-three .floor-flooter p{
+            color: #000406;
+            font-size: 18px;
+            line-height: 30px; 
+        }
+        .floor-three .floor-flooter strong{
+            display: inline-block;
+            font-size: 18px;
+            background: #ffed00;
+            color: #e30011;
+            margin: 4px 0;
+        }
+    
+        @keyframes flashText{
+            from {
+                color: #2200bb;
+            }
+            to{
+                color: #ff0000;
+            }
+        }
+
+        .duilian{top:570px;position:absolute; width:102px; overflow:hidden; display:none;transition: .8s cubic-bezier(0, 1.23, 0.81, 2.32);}
+        .duilian_left{left: 50%;margin-left: -688px;}
+        .duilian_right{right: 50%;margin-right: -688px;}
+        .duilian_close{ width:100%; height:24px; line-height:24px; text-align:center; display:block; font-size:13px; color:#fff; text-decoration:none;}
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="header">
+        <div class="center clearfix">
+            <a href="index.html" class="logo"><img src="images/logo.jpg" alt=""></a>
+            <div class="nav">
+                <ul class="clearfix">
+                    <li><a href="openprize.html">开奖</a></li>
+                    <li><a href="#">社区</a></li>
+                    <li><a href="history.html">历史</a></li>
+                    <li class="active"><a href="gallery.html">图库</a></li>
+                    <li><a href="#">大全</a></li>
+                    <li><a href="#">买彩票</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="row"><p class="title"><span>提醒</span>:高清图片24小时更新,建议使用WIFI查看!如果图片打不开说明还在更新中....</p></div>
+        <div class="center">
+            <div class="floor-one">
+                <ul>
+                   <li class="active"><a href="images/gallery/c37.jpg"><img src="images/gallery/i_1.png" alt=""><p>翡翠秘笈（信封）</p></a></li>
+                   <li><a href="images/gallery/n5.jpg"><img src="images/gallery/i_2.png" alt=""></a><p>挂牌平特（荐）</p></li>
+                   <li><a href="images/gallery/t27.jpg"><img src="images/gallery/i_3.png" alt=""></a><p>澳门内部传真（荐）</p></li>
+                </ul>
+            </div>
+            <div class="floor-two">
+                <div class="floor-top"><h2>─点以下查看其它字母开头图片─</h2></div>
+                <div class="content">
+                    <li><a href="#">A,E,K,R,P开头</a></li>
+                    <li><a href="#">B开头</a></li>
+                    <li><a href="#">C开头</a></li>
+                    <li><a href="#">D开头</a></li>
+                    <li><a href="#">F开头</a></li>
+                    <li><a href="#">G开头</a></li>
+                    <li><a href="#">H开头</a></li>
+                    <li><a href="#">J开头</a></li>
+                    <li><a href="#">L开头</a></li>
+                    <li><a href="#">M开头</a></li>
+                    <li><a href="#">N开头</a></li>
+                    <li><a href="#">Q开头</a></li>
+                    <li><a href="#">S开头</a></li>
+                    <li><a href="#">T开头</a></li>
+                    <li><a href="#">W开头</a></li>
+                    <li><a href="#">X开头</a></li>
+                    <li><a href="#">Y开头</a></li>
+                    <li><a href="#">Z开头</a></li>
+                    <li><a href="#">其他开头</a></li>
+                    <li><a href="#">青蛙系列</a></li>
+                    <li><a href="#">精选彩图</a></li>
+                </div>
+            </div>
+            <a href="#"><img src="images/gallery/q1.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q2.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q3.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q4.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q5.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q6.gif" alt=""></a>
+            <a href="#"><img src="images/gallery/q7.gif" alt=""></a>
+            <div class="floor-three">
+                <div class="content clearfix">
+                    <div class="item">
+                        <p class="title">红姐图库综合102期</p>
+                        <ul>
+                            <li><a href="#">1 富婆</a></li>
+                            <li><a href="#">2 特肖秘籍</a></li>
+                            <li><a href="#">3 理财婆（新图上市）</a></li>
+                            <li><a href="#">4 雷锋内幕报</a></li>
+                            <li><a href="#">5 白小姐特码信封</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                    <div class="item">
+                        <p class="title">天空图库综合102期</p>
+                        <ul>
+                            <li><a href="#">1 通 天 报</a></li>
+                            <li><a href="#">2 解 码 图</a></li>
+                            <li><a href="#">3 特码快递</a></li>
+                            <li><a href="#">4 特码快递</a></li>
+                            <li><a href="#">5 翡翠秘笈(信封)</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                    <div class="item">
+                        <p class="title">马经系列102期</p>
+                        <ul>
+                            <li><a href="#">1 伯乐相马经（荐）</a></li>
+                            <li><a href="#">2 马经精版料（荐）</a></li>
+                            <li><a href="#">3 马经救世报（荐）</a></li>
+                            <li><a href="#">4 香港马经（新版）</a></li>
+                            <li><a href="#">5 马经平特图（荐）</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                    <div class="item">
+                        <p class="title">挂牌与管家婆102期</p>
+                        <ul>
+                            <li><a href="#">1 九龙挂牌解特码A</a></li>
+                            <li><a href="#">2 九龙挂牌解特码B</a></li>
+                            <li><a href="#">3 挂牌天书(新图)</a></li>
+                            <li><a href="#">4 香港挂牌宝典</a></li>
+                            <li><a href="#">5 手写马会挂牌</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                    <div class="item">
+                        <p class="title">曾道人系列102期</p>
+                        <ul>
+                            <li><a href="#">1 曾道人透特</a></li>
+                            <li><a href="#">2 曾道人权威消息A</a></li>
+                            <li><a href="#">3 曾道人内幕A</a></li>
+                            <li><a href="#">4 曾道人送特码(新图)</a></li>
+                            <li><a href="#">5 曾道人点特玄机</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                    <div class="item">
+                        <p class="title">白小姐系列102期</p>
+                        <ul>
+                            <li><a href="#">1 白小姐三点传密A</a></li>
+                            <li><a href="#">2 白小姐新一代A</a></li>
+                            <li><a href="#">3 白小姐财务通(新图)</a></li>
+                            <li><a href="#">4 白小姐特码信封</a></li>
+                            <li><a href="#">5 白小姐点金</a></li>
+                        </ul>
+                        <a href="#" class="more">更多>>></a>
+                    </div>
+                </div>
+                <div class="floor-flooter">
+                    <h2>提醒：</h2>
+                    <p>"*"是广告/外站,其内容跟本站无关!</p>
+                    <p>本站由天空彩票,天空彩提供:天空图库,心水图库,118图库,雷锋图库,红姐图库,香港马会等提供!</p>
+                    <strong>*金沙:买码48.5倍/充送1%/时彩返水</strong><br>
+                    <strong>*特码60倍.分分彩9.9.幸运飞艇.送2000试玩</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="flooter">
+            <div class="center">
+                <div class="row">
+                    <a href="#">51导航</a>&nbsp|
+                    <a href="#">美女</a>&nbsp|
+                    <a href="#">性品</a>&nbsp|
+                    <a href="#">论坛</a>&nbsp|
+                    <a href="#">收藏</a>&nbsp|
+                    <a href="#">首页</a>
+                </div>
+                <br>
+                <p>Copyright © 2005 - 2017  站长统计 </p>
+                <p>最权威▪最专业▪最及时▪最互动 </p>
+                <p>"*"是广告/外链,内容与本站无关!</p>
+                <p>提示:↓→本站内容均为免费查阅。</p>
+                <p>所有内容载自互联网,谨供娱乐参考!</p>
+                <p>严禁转载,盗链,等严禁一切赌博行为!</p>
+                <p style="color:#ffed00;">法律声明:国内人士请遵照中华人民共和国相关法律，切勿参与赌博触犯法例,在任何
+    情况下引致触犯所属地区之法律，网友须自行承担一切责任。</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="duilian duilian_left">
+        <div class="duilian_con"><a href="#"><img src="images/duilian.png" alt=""></a></div>
+        <a href="#" class="duilian_close">X关闭</a>
+    </div>
+
+    <div class="duilian duilian_right">
+        <div class="duilian_con"><a href="#"><img src="images/duilian.png" alt=""></a></div>
+        <a href="#" class="duilian_close">X关闭</a>
+    </div>
+
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var duilian = $("div.duilian");
+        var duilian_close = $("a.duilian_close");
+        
+        var screen_w = screen.width;
+        if(screen_w>1024){duilian.show();}
+        var scrollTop = 0;
+        $(window).scroll(function(){
+            scrollTop = $(window).scrollTop();
+            if( scrollTop <= 247 ){
+                duilian.stop().css({top:570});
+                return;
+            }
+            duilian.stop().css({top:scrollTop+260});
+        });
+        duilian_close.click(function(){
+            $(this).parent().hide();
+            return false;
+        });
+    </script>
+
+</body>
+
+</html>
